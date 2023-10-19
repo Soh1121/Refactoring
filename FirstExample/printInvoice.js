@@ -3,7 +3,7 @@ function statement (invoice, plays) {
         return plays[aPerformance.playID];
     }
 
-    function amountFor(aPerformance, play) {
+    function amountFor(aPerformance) {
         let result = 0;
         switch (playFor(aPerformance).type) {
         case "tragedy":
@@ -33,7 +33,7 @@ function statement (invoice, plays) {
                   minimumFractionDigits: 2}).format;
 
     for (let perf of invoice.performances) {
-        let thisAmount = amountFor(pref, playFor(pref));
+        let thisAmount = amountFor(pref);
 
         // ボリューム特典のポイントを加算
         volumeCredits += Math.max(pref.audience - 30, 0);

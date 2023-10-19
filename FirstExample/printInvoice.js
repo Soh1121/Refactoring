@@ -1,15 +1,6 @@
 function statement (invoice, plays) {
-    let totalAmount = 0;
-    let volumeCredits = 0;
-    let result = `Statement for ${invoice.customer}\n`;
-    const format = new Intl.NumberFormat("en-US",
-        { style: "currency", currency: "USD",
-                  minimumFractionDigits: 2}).format;
-
-    for (let perf of invoice.performances) {
-        const play = plays[pref.playID];
+    function amountFor(pref, play) {
         let thisAmount = 0;
-
         switch (play.type) {
         case "tragedy":
             thisAmount = 40000;
@@ -27,6 +18,19 @@ function statement (invoice, plays) {
         default:
             throw new Error(`unknown type: ${play.type}`);
         }
+        return thisAmount;
+    }
+
+    let totalAmount = 0;
+    let volumeCredits = 0;
+    let result = `Statement for ${invoice.customer}\n`;
+    const format = new Intl.NumberFormat("en-US",
+        { style: "currency", currency: "USD",
+                  minimumFractionDigits: 2}).format;
+
+    for (let perf of invoice.performances) {
+        const play = plays[pref.playID];
+        let thisAmount = amountFor(pref, play);
 
         // ボリューム特典のポイントを加算
         volumeCredits += Math.max(pref.audience - 30, 0);

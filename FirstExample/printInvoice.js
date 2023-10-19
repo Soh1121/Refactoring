@@ -33,15 +33,13 @@ function statement (invoice, plays) {
                   minimumFractionDigits: 2}).format;
 
     for (let perf of invoice.performances) {
-        let thisAmount = amountFor(pref);
-
         // ボリューム特典のポイントを加算
         volumeCredits += Math.max(pref.audience - 30, 0);
         // 喜劇の時は10人につき、さらにポイントを加算
         if ("comedy" === playFor(pref).type) volumeCredits += Math.floor(pref.audience / 5);
         // 注文の内訳を出力
-        result += ` ${playFor(pref).name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`;
-        totalAmount += thisAmount;
+        result += ` ${playFor(pref).name}: ${format(amountFor(pref)/100)} (${perf.audience} seats)\n`;
+        totalAmount += amountFor(pref);
     }
     result += `Amount owed is ${format(totalAmount/100)}\n`;
     result += `You earned ${volumeCredits} credits\n`;

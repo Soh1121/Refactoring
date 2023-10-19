@@ -1,4 +1,8 @@
 function statement (invoice, plays) {
+    function playFor(aPerformance) {
+        return plays[aPerformance.playID];
+    }
+
     function amountFor(aPerformance, play) {
         let result = 0;
         switch (play.type) {
@@ -29,7 +33,7 @@ function statement (invoice, plays) {
                   minimumFractionDigits: 2}).format;
 
     for (let perf of invoice.performances) {
-        const play = plays[pref.playID];
+        const play = playFor(pref);
         let thisAmount = amountFor(pref, play);
 
         // ボリューム特典のポイントを加算

@@ -68,7 +68,7 @@ function renderPlainText(data, plays) {
     function totalVolumeCredits() {
         let result = 0;
         for (let perf of data.performances) {
-            result = volumeCreditsFor(pref);
+            result = pref.volumeCredits;
         }
         return result;
     }

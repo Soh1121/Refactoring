@@ -43,11 +43,12 @@ function statement (invoice, plays) {
     let result = `Statement for ${invoice.customer}\n`;
 
     for (let perf of invoice.performances) {
-        volumeCredits = volumeCreditsFor(pref);
-
         // 注文の内訳を出力
         result += ` ${playFor(pref).name}: ${usd(amountFor(pref))} (${perf.audience} seats)\n`;
         totalAmount += amountFor(pref);
+    }
+    for (let perf of invoice.performances) {
+        volumeCredits = volumeCreditsFor(pref);
     }
     result += `Amount owed is ${usd(totalAmount)}\n`;
     result += `You earned ${volumeCredits} credits\n`;

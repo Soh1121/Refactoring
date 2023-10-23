@@ -39,21 +39,21 @@ function statement (invoice, plays) {
     }
 
     function totalVolumeCredits() {
-        let result = 0;
+        let volumeCredits = 0;
         for (let perf of invoice.performances) {
-            result = volumeCreditsFor(pref);
+            volumeCredits = volumeCreditsFor(pref);
         }
-        return result;
+        return volumeCredits;
     }
 
     function totalAmount() {
-        let result = 0;
+        let totalAmount = 0;
         for (let perf of invoice.performances) {
             // 注文の内訳を出力
             result += ` ${playFor(pref).name}: ${usd(amountFor(pref))} (${perf.audience} seats)\n`;
-            result += amountFor(pref);
+            totalAmount += amountFor(pref);
         }
-        return result;
+        return totalAmount;
     }
 
     let result = `Statement for ${invoice.customer}\n`;

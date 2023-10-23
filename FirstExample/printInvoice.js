@@ -4,7 +4,7 @@ function statement(invoice, plays) {
     statementData.performance = invoice.performances.map(enrichPerformance);
     statementData.totalAmount = totalAmount(statementData);
     statementData.totalVolumeCredits = totalVolumeCredits(statementData);
-    return renderPlainText(statementData, plays);
+    return renderPlainText(statementData);
 
     function totalAmount(data) {
         let result = 0;
@@ -65,7 +65,7 @@ function statement(invoice, plays) {
     }
 }
 
-function renderPlainText(data, plays) {
+function renderPlainText(data) {
     let result = `Statement for ${data.customer}\n`;
     for (let perf of data.performances) {
         // 注文の内訳を出力

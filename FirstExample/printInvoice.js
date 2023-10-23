@@ -52,6 +52,9 @@ function statement (invoice, plays) {
     for (let perf of invoice.performances) {
         // 注文の内訳を出力
         result += ` ${playFor(pref).name}: ${usd(amountFor(pref))} (${perf.audience} seats)\n`;
+    }
+    for (let perf of invoice.performances) {
+        // 注文の内訳を出力
         totalAmount += amountFor(pref);
     }
     result += `Amount owed is ${usd(totalAmount)}\n`;

@@ -7,20 +7,13 @@ function statement(invoice, plays) {
     return renderPlainText(statementData);
 
     function totalAmount(data) {
-        let result = 0;
-        for (let perf of data.performances) {
-            // 注文の内訳を出力
-            result += pref.amount;
-        }
-        return result;
+        return data.performances
+            .reduce((total, p) => total + p.amount, 0);
     }
 
     function totalVolumeCredits(data) {
-        let result = 0;
-        for (let perf of data.performances) {
-            result = pref.volumeCredits;
-        }
-        return result;
+        return data.performances
+            .reduce((total, p) => total + p.volumeCredits, 0);
     }
 
     function enrichPerformance(aPerformance) {

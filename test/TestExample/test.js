@@ -1,10 +1,14 @@
 const chai = require('chai');
-const assert = chai.assert;
+const expect = chai.expect;
 const { Province, sampleProvinceData } = require('../../TestExample/sample');
 
 describe('province', function() {
     it('shortfall', () => {
         const asia = new Province(sampleProvinceData());
-        assert.equal(asia.shortfall, 5);
+        expect(asia.shortfall).equal(5);
+    });
+    it('profit', () => {
+        const asia = new Province(sampleProvinceData());
+        expect(asia.profit).equal(230);
     });
 });

@@ -16,4 +16,4 @@ class Department {
 }
 
 // client code
-manage = aPerson.department.manager;
+manage = aPerson.manager;

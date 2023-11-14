@@ -5,7 +5,10 @@ class Person {
     get name() {return this._name;}
     get department() {return this._department;}
     set department(arg) {this._department = arg;}
+    get chargeCode() {return this._department.chargeCode;}
+    set chargeCode(arg) {this._department.chargeCode = arg;}
     get manager() {return this._department.manager;}
+    set manager(arg) {this._department.manager = arg;}
 }
 
 class Department {

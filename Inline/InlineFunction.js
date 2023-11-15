@@ -1,5 +1,5 @@
 function rating(aDriver) {
-    return moreThanFiveLateDeliveries(aDriver) ? 2 : 1;
+    return aDriver.numberOfLateDeliveries > 5 ? 2 : 1;
 }
 
 function moreThanFiveLateDeliveries(dvr) {

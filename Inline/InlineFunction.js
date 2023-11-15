@@ -4,6 +4,3 @@ function reportLines(aCustomer) {
     lines.push(["location", aCustomer.location]);
     return lines;
 }
-
-function gatherCustomerData(out, aCustomer) {
-}

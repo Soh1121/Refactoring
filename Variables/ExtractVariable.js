@@ -11,4 +11,7 @@ class Order {
             Math.max(0, this.quantity - 300) * this.itemPrice * 0.05 +
             Math.min(this.quantity * this.itemPrice * 0.1, 100);
     }
+    get basePrice() {
+        return this.quantity * this.itemPrice;
+    }
 }

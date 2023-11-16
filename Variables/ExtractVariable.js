@@ -17,4 +17,7 @@ class Order {
     get quantityDiscount() {
         return Math.max(0, this.quantity - 300) * this.itemPrice * 0.05;
     }
+    get shipping() {
+        return Math.min(this.basePrice * 0.1, 100);
+    }
 }

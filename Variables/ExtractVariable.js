@@ -7,9 +7,7 @@ class Order {
     get itemPrice() {return this._data.itemPrice;}
 
     get price() {
-        return this.basePrice -
-            this.quantityDiscount +
-            Math.min(this.basePrice * 0.1, 100);
+        return this.basePrice - this.quantityDiscount + this.shipping;
     }
     get basePrice() {
         return this.quantity * this.itemPrice;

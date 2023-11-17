@@ -1,13 +1,11 @@
-const pricingPlan = retrievePricingPlan();
-const basecharge = pricingPlan.base;
-let charge;
-const chargePerUnit = pricingPlan.unit;
-const order = retrieveOrder();
-const units = order.units;
-charge = basecharge + units * chargePerUnit;
-let discountableUnits = Math.max(units - pricingPlan.discountThreshold, 0);
-let discount;
-discount = discountableUnits * pricingPlan.discountFactor;
-if (order.isRepeat) discount += 20;
-charge = charge - discount;
-chargeOrder(charge);
+function sample() {
+    let result;
+    if (availableResources.length === 0) {
+        result = createResource();
+        allocatedResources.push(result);
+    } else {
+        result = availableResources.pop();
+        allocatedResources.push(result);
+    }
+    return result;
+}

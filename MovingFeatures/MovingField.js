@@ -1,25 +1,16 @@
-class Customer {
-    constructor(name, discountRate) {
-        this._name = name;
-        this._contract = new CustomerContract(dateToday());
-        this._setDiscountRate = discountRate;
+class Account
+{
+    constructor(number, type, interestRate) {
+        this._numeber = number;
+        this._type = type;
+        this._interestRate = interestRate;
     }
-    get discountRate() {return this._contract.discountRate;}
-    _setDiscountRate(aNumber) {this._contract.discountRate = aNumber;}
-    becomePreferred() {
-        this._setDiscountRate(this._contract.discountRate + 0.03);
-        // さらに便宜を図る
-    }
-    applyDiscount(amount) {
-        return amount.subtract(amount.multiple(this.discountRate));
-    }
+    get interestRate() {return this._interestRate;}
 }
 
-class CustomerContract {
-    constructor(startDate, discountRate) {
-        this._startDate = startDate;
-        this._discountRate = discountRate;
+class AccountType
+{
+    constructor(nameString) {
+        this._name = nameString;
     }
-    get discountRate() {return this._discountRate;}
-    set discountRate(arg) {this._discountRate = arg;}
 }

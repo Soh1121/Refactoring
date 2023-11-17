@@ -1,0 +1,18 @@
+class Account
+{
+    constructor(number, type, interestRate) {
+        this._numeber = number;
+        this._type = type;
+        this._interestRate = interestRate;
+    }
+    get interestRate() {return this._type.interestRate;}
+}
+
+class AccountType
+{
+    constructor(nameString, interestRate) {
+        this._name = nameString;
+        this._interestRate = interestRate;
+    }
+    get interestRate() {return this._interestRate;}
+}

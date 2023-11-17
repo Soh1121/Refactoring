@@ -1,8 +1,8 @@
 const pricingPlan = retrievePricingPlan();
-const order = retrieveOrder();
 const basecharge = pricingPlan.base;
 let charge;
 const chargePerUnit = pricingPlan.unit;
+const order = retrieveOrder();
 const units = order.units;
 charge = basecharge + units * chargePerUnit;
 let discountableUnits = Math.max(units - pricingPlan.discountThreshold, 0);

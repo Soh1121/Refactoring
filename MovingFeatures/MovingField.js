@@ -4,10 +4,10 @@ class Customer {
         this._contract = new CustomerContract(dateToday());
         this._setDiscountRate = discountRate;
     }
-    get discountRate() {return this._discountRate;}
-    _setDiscountRate(aNumber) {this._discountRate = aNumber;}
+    get discountRate() {return this._contract.discountRate;}
+    _setDiscountRate(aNumber) {this._contract.discountRate = aNumber;}
     becomePreferred() {
-        this._setDiscountRate(this._discountRate + 0.03);
+        this._setDiscountRate(this._contract.discountRate + 0.03);
         // さらに便宜を図る
     }
     applyDiscount(amount) {

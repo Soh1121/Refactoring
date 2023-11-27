@@ -18,6 +18,6 @@ function createEmployee(name, typeCode) {
     return new Employee(name, typeCode);
 }
 
-candidate = new Employee(document.name, document.empType);
+candidate = createEmployee(document.name, document.empType);
 
 const leadEngineer = new Employee(document.leadEngineer, "E");

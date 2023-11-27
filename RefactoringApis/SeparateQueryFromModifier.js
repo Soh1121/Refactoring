@@ -1,4 +1,4 @@
-function alertFormiscreant (people) {
+function alertForMiscreant (people) {
     for (const p of people) {
         if (p === "Don") {
             setOffAlarms();
@@ -23,3 +23,5 @@ function findMiscreant (people) {
     }
     return "";
 }
+
+const found = alertForMiscreant(people);

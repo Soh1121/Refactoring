@@ -8,11 +8,13 @@ function printOwing(invoice) {
         outstanding += o.amount;
     }
 
-    // 締め日の記録(record due date)
+    recordDueDate(invoice);
+    printDetails(invoice, outstanding);
+}
+
+function recordDueDate(invoice) {
     const today = Clock.today;
     invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
-
-    printDetails(invoice, outstanding);
 }
 
 function printDetails(invoice, outstanding) {

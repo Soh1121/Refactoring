@@ -1,9 +1,9 @@
 function printOwing(invoice) {
-    let outstanding = 0;
 
     printBanner();
 
     // 未払い金の計算(calculate outstanding)
+    let outstanding = 0;
     for (const o of invoice.orders) {
         outstanding += o.amount;
     }

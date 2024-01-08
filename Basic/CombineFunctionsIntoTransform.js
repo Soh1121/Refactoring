@@ -7,7 +7,7 @@ function client1() {
 function client2() {
     const rawReading = acquireReading();
     const aReading = enrichReading(rawReading);
-    const taxableCharge = Math.max(0, aReading.baseCharge - taxThreshold(aReading.year));
+    const taxableCharge = aReading.taxableCharge;
 }
 
 function client3() {

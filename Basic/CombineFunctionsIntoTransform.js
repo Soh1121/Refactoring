@@ -17,3 +17,8 @@ function client3() {
         return baseRate(aReading.month, aReading.year) * aReading.quantity;
     }
 }
+
+function enrichReading(original) {
+    const result = _.cloneDeep(original);
+    return result;
+}

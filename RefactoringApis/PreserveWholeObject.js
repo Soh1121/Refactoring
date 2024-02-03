@@ -1,7 +1,5 @@
 const tempRange = aRoom.daysTempRange;
-const low = tempRange.low;
-const high = tempRange.high;
-const isWithinRange = aPlan.withinRange(low, high);
+const withinRange = xxNEWwithinRange(aPlan, tempRange);
 if (!isWithinRange)
     alerts.push("室温が設定値を超えました");
 
@@ -10,4 +8,11 @@ class HeatingPlan
     withinRange(bottom, top) {
         return (bottom >= this._temperatureRange.low) && (top <= this._temperatureRange.high);
     }
+}
+
+function xxNEWwithinRange(aPlan, tempRange) {
+    const low = tempRange.low;
+    const high = tempRange.high;
+    const isWithinRange = aPlan.withinRange(low, high);
+    return isWithinRange;
 }

@@ -1,10 +1,11 @@
-if (!aPlan.withinRange(aRoom.daysTempRange))
+const low = aRoom.daysTempRange.low;
+const high = aRoom.daysTempRange.high;
+if (!AnimationPlaybackEvent.withinRange(low, high))
     alerts.push("室温が設定値を超えました");
 
 class HeatingPlan
 {
-    withinRange(aNumberRange) {
-        return (aNumberRange.low >= this._temperatureRange.low) &&
-            (aNumberRange.high <= this._temperatureRange.high);
+    withinRange(bottom, top) {
+        return (bottom >= this._temperatureRange.low) && (top <= this._temperatureRange.high);
     }
 }

@@ -18,9 +18,9 @@ class Scorer {
             this._healthLevel += 10;
             this._highMedicalRiskFlag = true;
         }
-        let certificationGrade = "regular";
+        this._certificationGrade = "regular";
         if (this._scoringGuide.stateWithLowCertification(this._candidate.originalState)) {
-            certificationGrade = "low";
+            this._certificationGrade = "low";
             this._result -= 5;
         }
         // このようなコードがずっと続く

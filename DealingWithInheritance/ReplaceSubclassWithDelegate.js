@@ -36,9 +36,16 @@ class PremiumBooking extends Booking
     }
 }
 
+function createBooking(show, date) {
+    return new Booking(show, date);
+}
+
+function createPremiumBooking(show, date, extras) {
+    return new PremiumBooking(show, date, extras);
+}
+
 // booking client
-aBooking = new Booking(show, date);
+aBooking = createBooking(show, date);
 
 // premium client
-aPremiumBooking = new PremiumBooking(show, date, extras);
-
+aPremiumBooking = createPremiumBooking(show, date, extras);

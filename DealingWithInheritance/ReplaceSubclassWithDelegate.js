@@ -6,7 +6,9 @@ class Booking
     }
 
     get hasTalkback() {
-        return this._show.hasOwnProperty('talkback') && !this.isPeakDay;
+        return (this._premiumDelegate)
+            ? this._premiumDelegate.hasTalkback
+            : this._show.hasOwnProperty('talkback') && !this.isPeakDay;
     }
 
     get basePrice() {
@@ -27,10 +29,6 @@ class PremiumBooking extends Booking
         this._extras = extras;
     }
 
-    get hasTalkback() {
-        return this._show.hasOwnProperty('talkback');
-    }
-
     get basePrice() {
         return Math.round(super.basePrice + this._extras.premiumFee);
     }
@@ -45,6 +43,10 @@ class PremiumBookingDelegate
     constructor(hostBooking, extras) {
         this._host = hostBooking;
         this._extras = extras;
+    }
+
+    get hasTalkback() {
+        return this._host._show.hasOwnProperty('talkback');
     }
 }
 

@@ -36,7 +36,7 @@ class Bird {
 }
 
 class EuropeanSwallow extends Bird {
-    get airSpeedVelocity() {return 35;}
+    get airSpeedVelocity() {return this._speciesDelegate.airSpeedVelocity;}
 }
 
 class AfricanSwallow extends Bird {
@@ -68,5 +68,5 @@ class NorwegianBlueParrot extends Bird {
 }
 
 class EuropeanSwallowDelegate {
-
+    get airSpeedVelocity() {return 35;}
 }

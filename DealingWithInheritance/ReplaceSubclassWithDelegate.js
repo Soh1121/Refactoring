@@ -57,3 +57,7 @@ class NorwegianBlueParrot extends Bird {
         return (this._isNailed) ? 0 : 10 + this._voltage / 10;
     }
 }
+
+class EuropeanSwallowDelegate {
+
+}

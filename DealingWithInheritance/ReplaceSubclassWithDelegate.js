@@ -1,10 +1,5 @@
 function createBird(data) {
-    switch (data.type) {
-        case 'NorweigianBlueParrot':
-            return new NorwegianBlueParrot(data);
-        default:
-            return new Bird(data);
-    }
+    return new Bird(data);
 }
 
 class Bird {
@@ -22,7 +17,7 @@ class Bird {
                 return new AfricanSwallowDelegate(data, this);
             case 'NorweigianBlueParrot':
                 return new NorwegianBlueParrotDelegate(data, this);
-            default: return null;
+            default: return new SpeciesDelegate(data, this);
         }
     }
 
@@ -36,14 +31,6 @@ class Bird {
 
     get airSpeedVelocity() {
         return this._speciesDelegate.airSpeedVelocity;
-    }
-}
-
-class NorwegianBlueParrot extends Bird {
-    constructor(data) {
-        super (data);
-        this._voltage = data.voltage;
-        this._isNailed = data.isNailed;
     }
 }
 

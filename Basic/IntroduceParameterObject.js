@@ -8,16 +8,15 @@ const station = {
     ]
 };
 
-function readingsOutsideRange(station, min, max, range) {
+function readingsOutsideRange(station, min, range) {
     return station.readings
-        .filter(r => r.temp < min || r.temp > max);
+        .filter(r => r.temp < min || r.temp > range.max);
 }
 
 const range = new NumberRange(operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
 alerts = readingsOutsideRange(
     station,
     operationgPlan.temperatureFloor,
-    operationgPlan.temperatureCeiling,
     range
 );
 

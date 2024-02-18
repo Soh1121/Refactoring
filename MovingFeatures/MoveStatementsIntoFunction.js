@@ -10,8 +10,7 @@ function renderPerson(outStream, person) {
 function photoDiv(p) {
     return [
         "<div>",
-        `<p>title: ${p.title}</p>`,
-        emitPhotoData(p),
+        zznew(p),
         "</div>",
     ].join("\n");
 }
@@ -21,4 +20,11 @@ function emitPhotoData(aPhoto) {
     result.push(`<p>location: ${aPhoto.location}</p>`);
     result.push(`<p>date: ${aPhoto.date.toDateString()}</p>`);
     return result.join("\n");
+}
+
+function zznew(p) {
+    return [
+        `<p>title: ${p.title}</p>`,
+        emitPhotoData(p),
+    ].join("\n");
 }

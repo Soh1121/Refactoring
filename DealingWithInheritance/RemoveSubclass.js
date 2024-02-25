@@ -21,7 +21,7 @@ const numberOfMales = people.filter(p => p.isMale()).length;
 function createPerson(aRecord) {
     switch (aRecord.gender) {
         case 'M': return new Person(aRecord.name, "M");
-        case 'F': return new Female(aRecord.name);
+        case 'F': return new Person(aRecord.name, "F");
         default: return new Person(aRecord.name);
     }
 }

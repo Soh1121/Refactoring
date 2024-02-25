@@ -20,16 +20,20 @@ class Female extends Person
 
 const numberOfMales = people.filter(p => p instanceof Male).length;
 
+function createPerson(aRecord) {
+    let p;
+    switch (aRecord.gender) {
+        case 'M': p = new Male(aRecord.name); break;
+        case 'F': p = new Female(aRecord.name); break;
+        default: p = new Person(aRecord.name); break;
+    }
+    return p;
+}
+
 function loadFromInput(data) {
     const result = [];
     data.forEach(aRecord => {
-        let p;
-        switch (aRecord.gender) {
-            case 'M': p = new Male(aRecord.name); break;
-            case 'F': p = new Female(aRecord.name); break;
-            default: p = new Person(aRecord.name); break;
-        }
-        result.push(p);
+        result.push(createPerson(aRecord));
     });
     return result;
 }

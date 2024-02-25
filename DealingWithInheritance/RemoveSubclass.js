@@ -18,7 +18,9 @@ class Female extends Person
     get genderCode() {return "F";}
 }
 
-const numberOfMales = people.filter(p => p instanceof Male).length;
+const numberOfMales = people.filter(p => isMale(p)).length;
+
+function isMale(aPerson) {return aPerson instanceof Male;}
 
 function createPerson(aRecord) {
     switch (aRecord.gender) {

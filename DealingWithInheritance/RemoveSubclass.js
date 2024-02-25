@@ -21,7 +21,6 @@ class Female extends Person
 const numberOfMales = people.filter(p => p instanceof Male).length;
 
 function createPerson(aRecord) {
-    let p;
     switch (aRecord.gender) {
         case 'M': return new Male(aRecord.name);
         case 'F': return new Female(aRecord.name);

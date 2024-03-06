@@ -8,5 +8,6 @@ class Employee {
         if (!["engineer", "manager", "salesman"].includes(arg))
             throw new Error(`従業員のタイプコードが不正：${arg}`);
     }
-    toString() {return `${this._name} (${this._type})`;}
+    get type() {return this._type;}
+    toString() {return `${this._name} (${this.type})`;}
 }

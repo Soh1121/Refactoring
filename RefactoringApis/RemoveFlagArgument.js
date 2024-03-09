@@ -17,6 +17,9 @@ function deliveryDate(anOrder, isRush) {
     return result;
 }
 
+function rushDeliveryDate    (anOrder) {return deliveryDate(anOrder, true);}
+function regularDeliveryDate (anOrder) {return deliveryDate(anOrder, false);}
+
 aShipment.deliveryDate = deliveryDate(anOrder);
 
 aShipment.deliveryDate = deliveryDate(anOrder);

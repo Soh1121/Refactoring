@@ -1,8 +1,3 @@
-function deliveryDate(anOrder, isRush) {
-    if (isRush) return rushDeliveryDate(anOrder);
-    else return regularDeliveryDate(anOrder);
-}
-
 function rushDeliveryDate(anOrder) {
     let deliveryTime;
     if (["MA", "CT"]     .includes(anOrder.deliveryState)) deliveryTime = 1;
@@ -19,6 +14,6 @@ function regularDeliveryDate(anOrder) {
     return anOrder.placedOn.plusDays(2 + deliveryTime);
 }
 
-aShipment.deliveryDate = deliveryDate(anOrder, true);
+aShipment.deliveryDate = rushDeliveryDate(anOrder);
 
-aShipment.deliveryDate = deliveryDate(anOrder, false);
+aShipment.deliveryDate = regularDeliveryDate(anOrder);

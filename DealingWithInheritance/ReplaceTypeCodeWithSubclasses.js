@@ -1,27 +1,18 @@
 class Employee {
     constructor (name, type) {
+        this.validateType(type);
         this._name = name;
+        this._type = type;
     }
-    toString() {return `${this._name} (${this.type})`;}
-}
-
-class Engineer extends Employee {
-    get type() {return "engineer";}
-}
-
-class Salesman extends Employee {
-    get type() {return "salesman";}
-}
-
-class Manager extends Employee {
-    get type() {return "manager";}
-}
-
-function createEmployee(name, type) {
-    switch (type) {
-        case "engineer": return new Engineer(name);
-        case "salesman": return new Salesman(name);
-        case "manager": return new Manager(name);
-        default: throw new Error(`Employee cannot be of type ${type}`);
+    validateType(arg) {
+        if (!["engineer", "manager", "salesman"].includes(arg))
+            throw new Error(`従業員のタイプコードが不正：${arg}`);
     }
+    get type() {return this._type;}
+    set type(arg) {this._type = arg;}
+
+    get capitalizedType() {
+        return this._type.charAt(0).toUpperCase() + this._type.substr(1).toLowerCase();
+    }
+    toString() {return `${this._name} (${this.capitalizedType})`;}
 }

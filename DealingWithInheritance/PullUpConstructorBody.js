@@ -10,6 +10,10 @@ class Employee {
     assignCar() {
 
     }
+
+    finishConstruction() {
+        if (this.isPrivileged) this.assignCar; // すべてのサブクラスでこの処理を行っている
+    }
 }
 
 class Manager extends Employee {
@@ -17,10 +21,6 @@ class Manager extends Employee {
         super(name);
         this._grade = grade;
         this.finishConstruction();
-    }
-
-    finishConstruction() {
-        if (this.isPrivileged) this.assignCar; // すべてのサブクラスでこの処理を行っている
     }
 
     get isPrivileged() {

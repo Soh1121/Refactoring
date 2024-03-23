@@ -1,6 +1,13 @@
-function getRawDataOfOrganization() {return organization;}
+class Organization {
+    constructor(data) {
+        this._data = data;
+    }
+}
 
-const organization = {name: "Acme Gooseberries", country: "GB"};
+function getRawDataOfOrganization() {return organization._data;}
+function getOrganization() {return organization;}
+
+const organization = new Organization({name: "Acme Gooseberries", country: "GB"});
 
 result += `<h1>${getRawDataOfOrganization().name}</h1>`;
 

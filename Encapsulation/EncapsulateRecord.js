@@ -23,7 +23,7 @@
  */
 
 // sample update...
-setUsage(customerID, year, month, amount);
+getCustomerData().setUsage(customerID, year, month, amount);
 
 // sample read
 function compareUsage (customerID, laterYear, month) {
@@ -41,6 +41,10 @@ function setUsage(customerID, year, month, amount) {
 class customerData {
     constructor(data) {
         this._data = data;
+    }
+
+    setUsage(customerID, year, month, amount) {
+        this._data[customerID].usages[year][month] = amount;
     }
 }
 

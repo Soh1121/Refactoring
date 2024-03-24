@@ -23,7 +23,7 @@
  */
 
 // sample update...
-getRawDataOfCustomers()[customerID].usages[year][month] = amount;
+setUsage(customerID, year, month, amount);
 
 // sample read
 function compareUsage (customerID, laterYear, month) {
@@ -34,6 +34,9 @@ function compareUsage (customerID, laterYear, month) {
 
 function getRawDataOfCustomers() {return customerData._data;}
 function setRawDataOfCustomers(arg) {customerData = new customerData(arg);}
+function setUsage(customerID, year, month, amount) {
+    getRawDataOfCustomers()[customerID].usages[year][month] = amount;
+}
 
 class customerData {
     constructor(data) {

@@ -32,7 +32,7 @@ function compareUsage (customerID, laterYear, month) {
     return {laterAmount: later, change: later -earlier};    // 前年同月比較
 }
 
-function getRawDataOfCustomers() {return customerData._data;}
+function getRawDataOfCustomers() {return customerData.rawData;}
 function setRawDataOfCustomers(arg) {customerData = new customerData(arg);}
 function setUsage(customerID, year, month, amount) {
     getRawDataOfCustomers()[customerID].usages[year][month] = amount;
@@ -45,6 +45,10 @@ class customerData {
 
     setUsage(customerID, year, month, amount) {
         this._data[customerID].usages[year][month] = amount;
+    }
+
+    get rawData() {
+        return _.cloneDeep(this._data);
     }
 }
 

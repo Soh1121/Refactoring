@@ -32,5 +32,13 @@ function compareUsage (customerID, laterYear, month) {
     return {laterAmount: later, change: later -earlier};    // 前年同月比較
 }
 
-function getRawDataOfCustomers() {return customerData;}
-function setRawDataOfCustomers(arg) {customerData = arg;}
+function getRawDataOfCustomers() {return customerData._data;}
+function setRawDataOfCustomers(arg) {customerData = new customerData(arg);}
+
+class customerData {
+    constructor(data) {
+        this._data = data;
+    }
+}
+
+function getCustomerData() {return customerData;}

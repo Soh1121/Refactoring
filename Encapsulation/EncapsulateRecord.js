@@ -1,18 +1,33 @@
-class Organization {
-    constructor(data) {
-        this._name = data.name;
-        this._country = data.country;
-    }
-    get name() {return this._name;}
-    set name(aString) {this._name = aString;}
-    get country() {return this._country;}
-    set country(aCountryCode) {this._country = aCountryCode;}
+/**
+ * "1920": {
+ *      name: "martin",
+ *      id: "1920",
+ *      usage: {
+ *          "2016": {
+ *              "1": 50,
+ *              "2": 55,
+ *              // 3月分以降は省略
+ *          },
+ *          "2015": {
+ *              "1": 70,
+ *              "2": 63,
+ *              // 3月分以降は省略
+ *          }
+ *      }
+ * },
+ * "38673": {
+ *      name: "neal",
+ *      id: "38673",
+ *      // 同様に顧客情報が続く
+ * }
+ */
+
+// sample update...
+customerData[customerID].usages[year][month] = amount;
+
+// sample read
+function compareUsage (customerID, laterYear, month) {
+    const later = customerData[customerID].usages[laterYear][month];
+    const earlier = customerData[customerID].usages[laterYear - 1][month];
+    return {laterAmount: later, change: later -earlier};    // 前年同月比較
 }
-
-function getOrganization() {return organization;}
-
-const organization = new Organization({name: "Acme Gooseberries", country: "GB"});
-
-result += `<h1>${getOrganization().name}</h1>`;
-
-getOrganization().name = newName;

@@ -2,8 +2,9 @@ reading = {customer: "ivan", quantity: 10, month: 5, year: 2017};
 
 // client 1...
 function client1() {
-    const aReading = acquireReading();
-    const baesCharge = baesRate(aReading.month, aReading.year) * aReading.quantity;
+    const rawReading = acquireReading();
+    const aReading = new Reading(rawReading);
+    const baesCharge = aReading.baseCharge;
 }
 
 // client 2...

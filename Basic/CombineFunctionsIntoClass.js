@@ -15,7 +15,8 @@ function client2() {
 
 // client 3...
 function client3() {
-    const aReading = acquireReading();
+    const rawReading = acquireReading();
+    const aReading = new Reading(rawReading);
     const basicChargeAmount = calculateBaseCharge(aReading);
 
     function calculateBaseCharge(aReading) {

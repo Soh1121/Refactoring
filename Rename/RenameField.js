@@ -9,4 +9,4 @@ class Organization {
     set country(aCountryCode) {this._country = aCountryCode;}
 }
 
-const organization = new Organization({name: "Acme Gooseberries", country: "GB"});
+const organization = new Organization({title: "Acme Gooseberries", country: "GB"});

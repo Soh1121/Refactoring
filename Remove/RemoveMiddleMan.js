@@ -1,5 +1,5 @@
 // client code...
-manager = aPerson.manager;
+manager = aPerson.department.manager;
 
 class Person
 {

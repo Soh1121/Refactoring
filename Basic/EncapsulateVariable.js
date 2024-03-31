@@ -9,7 +9,7 @@ assert.equal("Parsons", owner1.lastName, "after change owner2"); // これでい
 
 // defaultOwner.js...
 let defaultData = {firstName: "Martin", lastName: "Fowler"};
-export function defaultOwner() {return Object.assign({}, defaultData);}
+export function defaultOwner() {return new Person(defaultData);}
 export function setDefaultOwner(arg) {defaultData = arg;}
 
 class Person {

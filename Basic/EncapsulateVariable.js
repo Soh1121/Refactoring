@@ -11,3 +11,13 @@ assert.equal("Parsons", owner1.lastName, "after change owner2"); // これでい
 let defaultData = {firstName: "Martin", lastName: "Fowler"};
 export function defaultOwner() {return Object.assign({}, defaultData);}
 export function setDefaultOwner(arg) {defaultData = arg;}
+
+class Person {
+    constructor(data) {
+        this._lastName = data.lastName;
+        this._firstName = data.firstName;
+    }
+    get lastName() {return this._lastName;}
+    get firstName() {return this._firstName;}
+    // 以下、他の属性に対しても同様に行う
+}

@@ -1,3 +1,5 @@
+const { assert } = require("chai");
+
 class ProductionPlan
 {
     constructor (production) {
@@ -6,7 +8,13 @@ class ProductionPlan
         this._adjustments = [];
     }
     get production() {
+        assert(this._productionAccumulator === this.calculatedProductionAccumulator);
         return this._initialProduction + this._productionAccumulator;
+    }
+
+    get calculatedProductionAccumulator() {
+        return this._adjustments
+            .reduce((sum, a) => sum + a.amount, 0);
     }
 
     applyAdjustment(anAdjustment) {

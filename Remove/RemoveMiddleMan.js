@@ -3,6 +3,7 @@ manager = aPerson.manager;
 
 class Person
 {
+    get department() {return this._department;}
     get manager() {return this._department.manager;}
 }
 

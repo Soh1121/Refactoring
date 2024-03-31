@@ -4,7 +4,7 @@ manager = aPerson.department.manager;
 class Person
 {
     get department() {return this._department;}
-    get manager() {return this._department.manager;}
+    get manager() {return this.department.manager;}
 }
 
 class Department

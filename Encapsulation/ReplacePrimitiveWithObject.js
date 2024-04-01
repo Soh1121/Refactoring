@@ -28,6 +28,5 @@ class Priority
 }
 
 // client...
-highPriorityCount = orders.filter(o => "high" === o.priority.String
-                                    || "rush" === o.priority.String)
+highPriorityCount = orders.filter(o => priority.higherThan(new Priority('normal')))
                             .length;

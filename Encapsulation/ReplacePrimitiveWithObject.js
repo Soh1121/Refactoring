@@ -4,7 +4,7 @@ class Order
         this.priority = data.priority;
         // 初期化が続く
     }
-    get priority() {return this._priority.toString();}
+    get priorityString() {return this._priority.toString();}
     set priority(aString) {this._priority = new Priority(aString);}
 }
 
@@ -15,6 +15,6 @@ class Priority
 }
 
 // client...
-highPriorityCount = orders.filter(o => "high" === o.priority
-                                    || "rush" === o.priority)
+highPriorityCount = orders.filter(o => "high" === o.priorityString
+                                    || "rush" === o.priorityString)
                             .length;

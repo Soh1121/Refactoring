@@ -4,8 +4,8 @@ class Order
         this.priority = data.priority;
         // 初期化が続く
     }
-    get priority() {return this._priority;}
-    set priority(aString) {this._priority = aString;}
+    get priority() {return this._priority.toString();}
+    set priority(aString) {this._priority = new Priority(aString);}
 }
 
 class Priority

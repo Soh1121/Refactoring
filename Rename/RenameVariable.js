@@ -1,1 +1,2 @@
-const cpyNm = "Acme Gooseberries";
+const companyName = "Acme Gooseberries";
+const cpyNm = companyName;

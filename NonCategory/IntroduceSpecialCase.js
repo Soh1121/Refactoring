@@ -61,5 +61,5 @@ function client4()
 // client...
 function client()
 {
-    const name = ! isUnknown(aCustomer) ? aCustomer.name : "unknown occupant";
+    const name = aCustomer.isUnknown ? "unknown occupant" : aCustomer.name;
 }

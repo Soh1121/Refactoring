@@ -24,12 +24,6 @@ class NullPaymentHistory {
     get weeksDelinquentInLastYear() {return 0;}
 }
 
-function isUnknown(arg) {
-    if (!(arg instanceof Customer || arg instanceof UnknownCustomer))
-        throw new Error(`不正な値について要調査： <${arg}`);
-    return arg.isUnknown;
-}
-
 // client 1...
 function client1()
 {

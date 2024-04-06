@@ -17,9 +17,9 @@ class UnknownCustomer {
 }
 
 function isUnknown(arg) {
-    if (!(arg instanceof Customer) || (arg === "unknown"))
+    if (!(arg instanceof Customer || arg instanceof UnknownCustomer))
         throw new Error(`不正な値について要調査： <${arg}`);
-    return (arg === "unkown");
+    return arg.isUnknown;
 }
 
 // client 1...

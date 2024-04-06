@@ -57,3 +57,9 @@ function client4()
 {
     const weeksDelinquent = aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
+
+// client...
+function client()
+{
+    const name = ! isUnknown(aCustomer) ? aCustomer.name : "unknown occupant";
+}

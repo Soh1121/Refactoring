@@ -12,6 +12,10 @@ class Customer
     get isUnknown() {return false;}
 }
 
+class UnknownCustomer {
+    get isUnknown() {return true;}
+}
+
 // client 1...
 function client1()
 {

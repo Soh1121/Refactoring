@@ -28,17 +28,16 @@ function isUnknown(aCustomer) {
 function client1()
 {
     const rawSite = acquireSiteData();
-    const site = enrichSite();
+    const site = enrichSite(rawSite);
     const aCustomer = site.customer;
     // ...大量のコードが入る...
-    let customerName;
-    if (isUnknown(aCustomer)) customerName = "occupant";
-    else customerName = aCustomer.name;
+    const customerName = aCustomer.name;
 
     function enrichSite(aSite) {
         const result = _.cloneDeep(aSite);
         const unknownCustomer = {
             isUnknown: true,
+            name: "occupant",
         };
 
         if (isUnknown(result.customer)) result.customer = unknownCustomer;

@@ -34,8 +34,15 @@ function client1()
     if (isUnknown(aCustomer)) customerName = "occupant";
     else customerName = aCustomer.name;
 
-    function enrichSite(inputSite) {
-        return _.cloneDeep(inputSite);
+    function enrichSite(aSite) {
+        const result = _.cloneDeep(aSite);
+        const unknownCustomer = {
+            isUnknown: true,
+        };
+
+        if (isUnknown(result.customer)) result.customer = unknownCustomer;
+        else result.customer.isUnknown = false;
+        return result;
     }
 }
 

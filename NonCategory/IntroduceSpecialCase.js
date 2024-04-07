@@ -22,12 +22,17 @@
 // client1...
 function client1()
 {
-    const site = acquireSiteData();
+    const rawSite = acquireSiteData();
+    const site = enrichSite();
     const aCustomer = site.customer;
     // ...大量のコードが入る...
     let customerName;
     if (aCustomer === "unknown") customerName = "occupant";
     else customerName = aCustomer.name;
+
+    function enrichSite(inputSite) {
+        return _.cloneDeep(inputSite);
+    }
 }
 
 // client2...

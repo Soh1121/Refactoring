@@ -1,50 +1,44 @@
-class Site
-{
-    get customer() {
-        return (this._customer === "unknown") ? createUnknownCustomer() : this._customer;
-    }
-}
+// {
+//     name: "Acme Boston",
+//     location: "Malden MA",
+//     // 場所についての詳細が続く
+//     customer: {
+//         name: "Acme Industries",
+//         billingPlan: "plan-451",
+//         paymentHistory: {
+//             weeksDelinquentInLastYear: 7
+//             // 更に続く
+//         }
+//     }
+// }
 
-class Customer
-{
-    get name() {}
-    get billingPlan() {}
-    set billingPlan(arg) {}
-    get paymentHistory() {}
-    get isUnknown() {return false;}
-}
+// {
+//     name: "Warehouse Unit 15",
+//     location: "Malden MA",
+//     // 場所についての詳細が続く
+//     customer: "unknown",
+// }
 
-function createUnknownCustomer() {
-    return {
-        isUnknown: true,
-        name: "occupant",
-        billingPlan: registry.billingPlans.basic,
-        paymentHistory: {
-            weeksDelinquentInLastYear: 0,
-        }
-    };
-}
-
-function isUnknown(arg) {
-    return arg.isUnknown;
-}
-
-// client 1...
+// client1...
 function client1()
 {
+    const site = acquireSiteData();
     const aCustomer = site.customer;
-    // ... 大量のコードが入る ...
-    const customerName = aCustomer.name;
+    // ...大量のコードが入る...
+    let customerName;
+    if (aCustomer === "unknown") customerName = "occupant";
+    else customerName = aCustomer.name;
 }
 
-// client 2...
+// client2...
 function client2()
 {
-    const plan = aCustomer.billingPlan;
+    const plan = (aCustomer === "unknown") ?
+        registry.billingPlans.basic
+        : aCustomer.billingPlan;
 }
 
 // client 3...
-function client3()
-{
-    const weeksDelinquent = aCustomer.paymentHistory.weeksDelinquentInLastYear;
-}
+const weeksDelinquent = (aCustomer === "unknown") ?
+    0
+    : aCustomer.paymentHistory.weeksDelinquentInLastYear;

@@ -19,6 +19,10 @@
 //     customer: "unknown",
 // }
 
+function isUnknown(aCustomer) {
+    return aCustomer === "unknown";
+}
+
 // client1...
 function client1()
 {
@@ -27,7 +31,7 @@ function client1()
     const aCustomer = site.customer;
     // ...大量のコードが入る...
     let customerName;
-    if (aCustomer === "unknown") customerName = "occupant";
+    if (isUnknown(aCustomer)) customerName = "occupant";
     else customerName = aCustomer.name;
 
     function enrichSite(inputSite) {
@@ -38,12 +42,12 @@ function client1()
 // client2...
 function client2()
 {
-    const plan = (aCustomer === "unknown") ?
+    const plan = (isUnknown(aCustomer)) ?
         registry.billingPlans.basic
         : aCustomer.billingPlan;
 }
 
 // client 3...
-const weeksDelinquent = (aCustomer === "unknown") ?
+const weeksDelinquent = (isUnknown(aCustomer)) ?
     0
     : aCustomer.paymentHistory.weeksDelinquentInLastYear;

@@ -20,7 +20,8 @@
 // }
 
 function isUnknown(aCustomer) {
-    return aCustomer === "unknown";
+    if (aCustomer === "unknown") return true;
+    else return aCustomer.isUnknown;
 }
 
 // client1...

@@ -38,6 +38,7 @@ function client1()
         const unknownCustomer = {
             isUnknown: true,
             name: "occupant",
+            billingPlan: registry.billingPlans.basic,
         };
 
         if (isUnknown(result.customer)) result.customer = unknownCustomer;
@@ -49,9 +50,7 @@ function client1()
 // client2...
 function client2()
 {
-    const plan = (isUnknown(aCustomer)) ?
-        registry.billingPlans.basic
-        : aCustomer.billingPlan;
+    const plan = aCustomer.billingPlan;
 }
 
 // client 3...
